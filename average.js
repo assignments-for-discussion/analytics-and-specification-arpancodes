@@ -1,6 +1,10 @@
+const {filterInput} = require('./filterInput');
 
 function average(numbers) {
-  return numbers.reduce((p, c)=> p + c, 0) / numbers.length;
+  const numsWithoutNaN = filterInput(numbers);
+  return (
+    numsWithoutNaN.reduce((p, c) => p + c, 0) / numsWithoutNaN.length
+  );
 }
 
 module.exports = {average};
